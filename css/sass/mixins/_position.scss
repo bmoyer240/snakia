@@ -1,0 +1,58 @@
+
+/**
+ * center
+ * centers the element using margin
+ *
+ * @param  unit  $top:auto
+ * @param  unit  $bottom:auto
+ *
+ */
+@mixin center( $top:auto, $bottom:auto ) {
+  margin: $top auto $bottom;
+}
+
+/**
+ * absolute, fixed, relative
+ * Easy way to alter positioning of an element.
+ */
+@mixin absolute( $top: auto, $right: auto, $bottom: auto, $left: auto ) {
+  bottom  : $bottom;
+  left    : $left;
+  position: absolute;
+  right   : $right;
+  top     : $top;
+}
+@mixin fixed( $top: auto, $right: auto, $bottom: auto, $left: auto ) {
+  bottom  : $bottom;
+  left    : $left;
+  position: fixed;
+  right   : $right;
+  top     : $top;
+}
+@mixin relative( $top: auto, $right: auto, $bottom: auto, $left: auto ) {
+  bottom  : $bottom;
+  left    : $left;
+  position: relative;
+  right   : $right;
+  top     : $top;
+}
+
+/**
+ * rel-abs
+ * Called within the parent element, the parent element is position
+ * is set to relative while creating an absolutly positioned
+ * child.
+ */
+@mixin rel-abs( $selector: null, $top: auto, $right: auto, $bottom: auto, $left: auto ) {
+  @if ( $selector == null ) {
+    @warn "rel-abs: Invalid argument - selector cannot be empty";
+  }
+
+  // Parent
+  position: relative;
+
+  // Child
+  #{$selector} {
+    @include absolute( $top, $right, $bottom, $left );
+  }
+}

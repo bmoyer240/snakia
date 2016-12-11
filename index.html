@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="eie=edge">
+    <title>noki-snake.</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/snake.css">
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+      You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.
+      </p>
+    <![endif]-->
+
+
+    <div id="container">
+      <div id="heading"></div>
+
+      <div id="score-board"></div>
+
+      <div id="game-board-wrap">
+        <canvas id="game-board"></canvas>
+
+        <div id="game-menu">
+
+          <!-- username for leader boards - inactive -->
+          <div class="row">
+            <input type="text" id="username" maxlength="16" required="required" />
+          </div>
+
+          <!-- difficulty selection -->
+          <div class="row">
+            <div id="skill-wrap">
+              <ul id="skill-options">
+                <li class="skill-label" data-skill="easy">Easy Peezy</li>
+                <li class="skill-label" data-skill="med">I got this</li>
+                <li class="skill-label" data-skill="hard">Buckle up</li>
+              </ul>
+              <div id="skill-ball"></div>
+              <div id="skill-bar"></div>
+            </div>
+          </div>
+
+          <!-- start game -->
+          <div class="row">
+            <div id="start-game">start</div>
+          </div>
+        </div>
+
+        <div id="end-menu" class="game-menu">
+          <!-- post-game scoreboard -->
+          <div class="row"></div>
+
+          <!-- leaderboard - local storage - inactive -->
+          <div class="row"></div>
+
+          <!-- start over -->
+          <div class="row">
+            <div id="replay-game">replay</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- instructions -->
+      <div id="game-instructions">
+        <h2>How to play...</h2>
+        <div class="row">
+          <span class="kkey"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+          <span class="kkey"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+          <span class="kkey"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+          <span class="kkey"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+          <span class="kkey-desc">... the arrow keys are used to move the snake around the board once in motion</span>
+        </div>
+
+        <div class="row">
+          <span class="kkey">P</span>
+          <span class="kkey-desc">... to pause the game, but remember, the snake gets grumpy waiting around for food.</span>
+        </div>
+      </div>
+    </div>
+
+    <script  data-main="js/main" src="js/lib/require.js"></script>
+
+  </body>
+</html>

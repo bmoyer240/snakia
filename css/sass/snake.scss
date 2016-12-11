@@ -1,0 +1,22 @@
+/**
+ * snake.scss
+ * setup file for the master stylesheet
+ *
+ * @author  brian moyer <bmoyer240@gmail.com>
+ */
+
+//@import "compass";
+
+// VENDORS -----------------------------------/
+  @import "vendor/normalize";
+  @import "vendor/font-awesome/font-awesome";
+
+// MIXINS ------------------------------------/
+
+
+// SCHEME ------------------------------------/
+  @import "scheme/typography";
+  @import "scheme/scheme";
+
+// VIEWS -------------------------------------/
+  @import "views/board"
