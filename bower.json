@@ -1,0 +1,17 @@
+{
+  "name": "snakia",
+  "homepage": "https://github.com/bmoyer240/snakia",
+  "authors": [
+    "brian <bmoyer240@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

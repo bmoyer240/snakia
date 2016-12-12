@@ -9,31 +9,45 @@ define(function(){
    *
    * @param   mixed  items  str/int/object
    *
-   * @return  this  [description]
+   * @return  this
    */
   function exclude( items ) {
     // add the items, not the array of items
     if( typeof items === "object" ) {
-      this._exclude.concat( items );
+      _exclude.concat( items );
     }
     else {
-      this._exclude.push( items );
-
+      _exclude.push( items );
     }
 
     // chain it..
     return this;
   }
 
+  /**
+   * num()
+   * Creates an array of numbers from start
+   * to end, skipping over any excluded numbers.
+   *
+   * @param   int  start
+   * @param   int  end
+   *
+   * @return  array
+   */
   function num( start, end ) {
     return Array
             .apply( null, Array( end ) )
             .map( function( _, i ){
               // remove excluded
-              if( i in this._exclude ) { continue; }
-
-              return ( i + start );
+              if( !(i in _exclude) ) {
+                return ( i + start );
+              }
             });
+  }
+
+  return {
+    exclude : exclude,
+    num     : num
   }
 
 });
