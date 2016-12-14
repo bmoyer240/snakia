@@ -4,7 +4,7 @@
  */
 
 requirejs.config({
-  baseUrl : "src/components",
+  baseUrl : "src/js",
   paths   : {
     // application logic --------------/
       "app": "../js",
