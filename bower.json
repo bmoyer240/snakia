@@ -1,13 +1,13 @@
 {
-  "name": "snakia",
-  "homepage": "https://github.com/bmoyer240/snakia",
-  "authors": [
+  "name"     : "snakia",
+  "homepage" : "https://github.com/bmoyer240/snakia",
+  "authors"  : [
     "brian <bmoyer240@gmail.com>"
   ],
-  "description": "",
-  "main": "",
-  "license": "MIT",
-  "ignore": [
+  "description" : "",
+  "main"        : "",
+  "license"     : "MIT",
+  "ignore"      : [
     "**/.*",
     "node_modules",
     "bower_components",
@@ -15,9 +15,9 @@
     "tests"
   ],
   "dependencies": {
-    "chai-jq": "^0.0.9",
-    "mocha": "^3.2.0",
-    "chai": "^3.5.0",
-    "jquery": "^3.1.1"
+    "chai-jq" : "^0.0.9",
+    "mocha"   : "^3.2.0",
+    "chai"    : "^3.5.0",
+    "jquery"  : "^3.1.1"
   }
 }
