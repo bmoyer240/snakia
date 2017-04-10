@@ -1,0 +1,12 @@
+$RECYCLE.BIN/
+node_modules
+*.cache
+*.log
+#*.sublime-project
+*.sublime-workspace
+*.TMP
+res/
+Thumbs.db
+build/Release
+*.pid
+*.seed

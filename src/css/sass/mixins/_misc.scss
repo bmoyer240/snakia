@@ -1,0 +1,11 @@
+
+@mixin remove( $property, $important: null ) {
+  // define the important value
+  @if ( $important == null ) {
+    $important: "";
+  } @else {
+   $important: "!important";
+  }
+
+  $property: none $important;
+}

@@ -1,0 +1,30 @@
+// CONFIG ------------------------------------
+  $icon-url: "http://exocssd01.cable.comcast.com/brian/img/icons/";
+
+// FUNC --------------------------------------
+  @mixin maskit( $size, $pos-x:0, $pos-y:0 ) {
+    -webkit-mask-position : #{$pos-x}px #{$pos-y}px;
+    -webkit-mask-size     : #{$size}px #{$size}px;
+    -webkit-mask-repeat   : no-repeat;
+  }
+
+  @mixin maskimg( $filename, $color ) {
+    -webkit-mask-image : url("#{$icon-url}#{$filename}.svg");
+    background         : $color;
+  }
+
+  @mixin maskit-after( $size, $pos-x:0, $pos-y:0 ) {
+    &:after {
+      display: block;
+      content: " ";
+      @include maskit( $size, $pos-x, $pos-y );
+    }
+  }
+
+  @mixin maskit-before( $size, $pos-x:0, $pos-y:0 ) {
+    &:before {
+      display: block;
+      content: " ";
+      @include maskit( $size, $pos-x, $pos-y );
+    }
+  }

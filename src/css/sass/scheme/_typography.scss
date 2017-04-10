@@ -1,0 +1,16 @@
+/**
+ * _typeography.scss
+ * fonts are only imported/defined within this file.
+ * font-face assignment is defined within the master
+ * scheme file.
+ *
+ * @visibility: merged
+ */
+
+@font-face {
+  font-family : "mobile_fontregular";
+  src         : url("/dist/fonts/mobilefont-webfont.woff2") format("woff2"),
+                url("/dist/fonts/mobilefont-webfont.woff")  format("woff");
+  font-weight : normal;
+  font-style  : normal;
+}

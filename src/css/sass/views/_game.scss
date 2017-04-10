@@ -1,0 +1,108 @@
+/**
+ * _game.scss
+ * merges view into a single view
+ * for maintainability.. not enough
+ * rules to warrant dividing the content.
+ *
+ * @visibility: merged
+ */
+
+$board-height : 401px;
+$board-width  : $board-height;
+
+* { box-sizing: border-box !important; }
+
+body {
+  background: $green;
+}
+
+#game-wrapper {
+  border: 5px dotted $brown;
+  height : 413px;
+  margin : 0 auto 20px;
+  width  : 411px;
+}
+
+#instructions {
+    color       : $brown-dark;
+    font-family : "mobile_fontregular";
+    font-size   : 27px;
+    margin      : 20px auto 0;
+    width       : $board-width;
+    text-align  : center;
+}
+
+/*-[BOARD]-----------------------------*/
+  #board-heading {
+    color       : $brown-dark;
+    font-family : "mobile_fontregular";
+    font-size   : 40px;
+    margin      : 20px auto 0;
+    width       : $board-width;
+
+    #logo, #score {
+      display : inline-block;
+      width   : 50%;
+    }
+    #logo {
+      text-align: left;
+    }
+    #score {
+      text-align: right;
+    }
+  }
+
+  #board-wrap-out {
+    height : $board-height;
+    margin : 0 auto;
+    width  : $board-width;
+  }
+  #board-wrap-in {
+    overflow : hidden;
+    position : relative;
+  }
+
+  #board {
+    border-collapse : collapse;
+    display         : table;
+  }
+
+  .board-row {
+    display: table-row;
+  }
+
+  .cell {
+    background : $green-dark;
+    border     : 3px solid $green;
+    display    : table-cell;
+  }
+
+  .cell, .target, .snake {
+    border        : 3px solid $green;
+    border-radius : 5px;
+    height        : 20px;
+    width         : 20px;
+  }
+
+/*-[SNAKE]-----------------------------*/
+
+  .snake {
+    background : $brown;
+    position   : absolute;
+
+    .head { background: $brown-dark; }
+  }
+
+/*-[TARGETS]---------------------------*/
+
+  .target {
+    // background-color: transparent;
+    // background-image: url("/src/images/targets/food-default.png");
+    // background-repeat: no-repeat;
+    // background-position: 0 1px;
+    // background-size: 100%;
+    background : $brown-dark;
+    height     : 20px;
+    position   : absolute;
+    width      : 20px;
+  }
