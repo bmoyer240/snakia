@@ -119,19 +119,19 @@ class Game extends Component  {
 
         // start game
         if( this.is_active() ) {
-
+          // get the current direction
           var dir = this.get_direction();
 
+          // adjust the direction based on the user input
           if( key === 37 && dir != "RIGHT" )     { dir = _.DIRECTION_LEFT;  }
           else if( key === 38 && dir != "DOWN" ) { dir = _.DIRECTION_UP;    }
           else if( key === 39 && dir != "LEFT" ) { dir = _.DIRECTION_RIGHT; }
           else if( key === 40 && dir != "UP" )   { dir = _.DIRECTION_DOWN;  }
 
-
           // update the direction
           this.set_direction( dir );
-
         }
+
         // start/pause game
         else {
           switch( key ) {

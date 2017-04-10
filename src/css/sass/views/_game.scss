@@ -13,7 +13,7 @@ $board-width  : $board-height;
 * { box-sizing: border-box !important; }
 
 body {
-  background: $green;
+  background: blue;
 }
 
 #game-wrapper {
@@ -72,14 +72,14 @@ body {
   }
 
   .cell {
-    background : $green-dark;
+    background : url("/../images/board/soft-5--green-dark.png");
     border     : 3px solid $green;
     display    : table-cell;
   }
 
   .cell, .target, .snake {
-    border        : 3px solid $green;
-    border-radius : 5px;
+    // border        : 3px solid $green;
+    // border-radius : 5px;
     height        : 20px;
     width         : 20px;
   }
