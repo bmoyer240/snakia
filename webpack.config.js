@@ -8,31 +8,29 @@ const path    = require("path");
 const webpack = require("webpack");
 
 // webpack plugins
-const ExtractTextPlugin       = require("extract-text-webpack-plugin");
-const ExtractTextPluginConfig = new ExtractTextPlugin({
-  disable  : process.env.NODE_ENV === "development",
-  filename : "dist/css/app.css"
-});
-
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // define paths
-const PATH_DIST = path.join( __dirname, "dist" );
-const PATH_SRC  = path.join( __dirname, "src" );
+const PATH_DIST = path.resolve( __dirname, "./dist" );
+const PATH_SRC  = path.resolve( __dirname, "./src" );
 
 // webpack configuration
 module.exports = {
-  devServer:: {
-    contentBase : "./dist",
-    inline      : false
-  },
+  context   : PATH_SRC,
 
-  entry  : "./src/app.js",
+  // webpack-dev-server config
+  devServer : {
+    compress: true
+  },
+  devtool: "source-map",
+
+  entry  : "./app.js",
 
   // production distro settings
   output :{
     filename   : "bundle.js",
-    path       : "./dist",
+    path       : PATH_DIST,
     publicPath : PATH_DIST
   },
 
@@ -44,26 +42,29 @@ module.exports = {
         loader  : "babel-loader",
         test    : /\.(js|jsx)$/
       },
+
+      // sass compiler, css loader using extract
+      // whichs moves the css from bundle to self
+      // contained css file
       {
-        test   : /\.scss$/,
-        loader : ExtractTextPluginConfig.extract({
+        loader : ExtractTextPlugin.extract({
           fallback : "style-loader",
           use      : [ { loader: "css-loader" }, { loader: "sass-loader" } ]
-        })
-      },
-      {
-        loader : "file-loader",
-        test   : /\.(eot|svg|ttf|woff|woff2)$/
+        }),
+        test   : /\.scss$/
       }
     ]
   },
 
   plugins: [
-    ExtractTextPluginConfig,
+    new ExtractTextPlugin({
+      disable  : process.env.NODE_ENV === "development",
+      filename : "dist/css/app.css"
+    }),
     new HtmlWebpackPlugin({
-      filename : "index.html",
-      inject   : "body",
-      template : "./index.html"
+      filename : PATH_DIST + "/index.html",
+      hash     : true,
+      inject   : "body"
     }),
     new webpack.DefinePlugin({ "process.env.NODE_ENV": JSON.stringify("development") }),
     new webpack.HotModuleReplacementPlugin(),
@@ -75,9 +76,7 @@ module.exports = {
   // the import statement
   resolve: {
     // resolves left to right
-    extensions : [ "", ".js", ".jsx", ".json" ],
-    // abs path
-    root       : PATH_SRC
+    extensions : [ "*", ".js", ".jsx", ".json" ]
   }
 }
 
